@@ -1,0 +1,18 @@
+%YAML 1.2
+---
+name: foo
+file_extensions:
+  - foo
+scope: text.html.basic
+contexts:
+  main:
+    - include: test
+  test:
+    - match: '(<)'
+      captures:
+        1: keyword.control.foo
+      embed: scope:source.js
+      embed_scope: source.js
+      escape: '(>)'
+      escape_captures:
+        0: keyword.control.foo
